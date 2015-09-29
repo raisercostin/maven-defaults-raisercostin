@@ -1,0 +1,12 @@
+bin/*
+*~
+target
+.settings/*
+!.settings/.jsdtscope
+.project
+.classpath
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
