@@ -203,8 +203,8 @@
 					<version>3.3</version>
 					<configuration>
 						<encoding>${encoding}</encoding>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
+						<source>${source.java.version}</source>
+						<target>${target.java.version}</target>
 						<showDeprecation>true</showDeprecation>
 						<fork>true</fork>
 						<meminitial>512m</meminitial>
@@ -419,7 +419,7 @@
 					<linkXref>true</linkXref>
 					<sourceEncoding>${encoding}</sourceEncoding>
 					<minimumTokens>100</minimumTokens>
-					<targetJdk>${java.version}</targetJdk>
+					<targetJdk>${target.java.version}</targetJdk>
 				</configuration>
 			</plugin>
 			<plugin>
