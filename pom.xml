@@ -337,6 +337,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>2.10.3</version>
 					<configuration>
+                        <additionalparam>-Xdoclint:none</additionalparam>
 						<breakiterator>true</breakiterator>
 						<aggregate>true</aggregate>
 						<links>
@@ -403,6 +404,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
 					<breakiterator>true</breakiterator>
 					<aggregate>true</aggregate>
 					<links>
