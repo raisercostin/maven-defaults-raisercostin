@@ -6,11 +6,7 @@
 	</prerequisites>
 	<groupId>org.raisercostin.utils</groupId>
 	<artifactId>maven-defaults</artifactId>
-<<<<<<< HEAD
-	<version>3</version>
-=======
 	<version>4-SNAPSHOT</version>
->>>>>>> ab1c439c01f5f281953de481a78d14037d3aca08
 	<packaging>pom</packaging>
 	<name>Maven Defaults</name>
 	<description>A default configuration for maven projects.</description>
