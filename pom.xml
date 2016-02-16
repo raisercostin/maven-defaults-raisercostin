@@ -6,7 +6,11 @@
 	</prerequisites>
 	<groupId>org.raisercostin.utils</groupId>
 	<artifactId>maven-defaults</artifactId>
+<<<<<<< HEAD
 	<version>3</version>
+=======
+	<version>4-SNAPSHOT</version>
+>>>>>>> ab1c439c01f5f281953de481a78d14037d3aca08
 	<packaging>pom</packaging>
 	<name>Maven Defaults</name>
 	<description>A default configuration for maven projects.</description>
@@ -337,6 +341,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>2.10.3</version>
 					<configuration>
+                        <additionalparam>-Xdoclint:none</additionalparam>
 						<breakiterator>true</breakiterator>
 						<aggregate>true</aggregate>
 						<links>
@@ -403,6 +408,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
 					<breakiterator>true</breakiterator>
 					<aggregate>true</aggregate>
 					<links>
