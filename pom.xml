@@ -340,6 +340,7 @@
                         <additionalparam>-Xdoclint:none</additionalparam>
 						<breakiterator>true</breakiterator>
 						<aggregate>true</aggregate>
+						<failOnError>false</failOnError>
 						<links>
 							<link>http://download.oracle.com/javase/6/docs/api</link>
 							<link>http://static.springsource.org/spring/docs/3.0.5.RELEASE/javadoc-api/</link>
