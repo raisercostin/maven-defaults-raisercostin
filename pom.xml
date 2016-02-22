@@ -6,7 +6,7 @@
 	</prerequisites>
 	<groupId>org.raisercostin.utils</groupId>
 	<artifactId>maven-defaults</artifactId>
-	<version>6-SNAPSHOT</version>
+	<version>7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Maven Defaults</name>
 	<description>A default configuration for maven projects.</description>
@@ -50,7 +50,11 @@
 	<distributionManagement>
 		<repository>
 			<id>bintray</id>
-			<url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}</url>
+            <name>raisercostin-bintray-maven</name>
+            <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=1</url>
+            <!--
+            https://api.bintray.com/maven/raisercostin/maven/maven-defaults/;publish=1
+            -->
 		</repository>
 	</distributionManagement>
 
