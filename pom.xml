@@ -6,7 +6,7 @@
 	</prerequisites>
 	<groupId>org.raisercostin.utils</groupId>
 	<artifactId>maven-defaults</artifactId>
-	<version>6-SNAPSHOT</version>
+	<version>6</version>
 	<packaging>pom</packaging>
 	<name>Maven Defaults</name>
 	<description>A default configuration for maven projects.</description>
@@ -45,7 +45,7 @@
 		<connection>scm:git:${github.url}.git</connection>
 		<developerConnection>scm:git:${github.url}.git</developerConnection>
 		<url>${github.url}</url>
-		<tag>maven-defaults-3</tag>
+		<tag>maven-defaults-6</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
