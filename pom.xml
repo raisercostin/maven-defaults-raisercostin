@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<prerequisites>
 		<maven>3.0.4</maven>
@@ -22,10 +23,14 @@
 		<bintray.user>raisercostin</bintray.user>
 		<bintray.repo>maven</bintray.repo>
 		<bintray.package>maven-defaults</bintray.package>
-		<slf4j.version>1.6.4</slf4j.version>
-		<log4j.version>1.2.16</log4j.version>
 		<deployment.scope>compile</deployment.scope>
 		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
+		<slf4j.version>1.7.21</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<logback.version>1.7.7</logback.version>
+		<mockito.version>1.10.19</mockito.version>
+		<hamcrest.version>1.3</hamcrest.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<licenses>
 		<license>
@@ -50,11 +55,9 @@
 	<distributionManagement>
 		<repository>
 			<id>bintray</id>
-            <name>raisercostin-bintray-maven</name>
-            <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=1</url>
-            <!--
-            https://api.bintray.com/maven/raisercostin/maven/maven-defaults/;publish=1
-            -->
+			<name>raisercostin-bintray-maven</name>
+			<url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=1</url>
+			<!-- https://api.bintray.com/maven/raisercostin/maven/maven-defaults/;publish=1 -->
 		</repository>
 	</distributionManagement>
 
@@ -62,6 +65,93 @@
 		<system>Github</system>
 		<url>https://github.com/raisercostin/maven-defaults/issues</url>
 	</issueManagement>
+	<dependencyManagement>
+		<dependencies>
+			<!-- default logger for slf4j -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.1.3</version>
+			</dependency>
+			<!-- the official logging api -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- bind any other api to slf4j api -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- disable any already configured bridge -->
+			<!-- @see http://day-to-day-stuff.blogspot.be/2007/10/announcement-version-99-does-not-exist.html -->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>99-empty</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging-api</artifactId>
+				<version>99-empty</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>99-empty</version>
+				<scope>runtime</scope>
+			</dependency>
+			<!-- 
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>99-empty</version>
+				<scope>runtime</scope>
+			</dependency>
+			 -->
+			<!-- testing dependencies -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-core</artifactId>
+				<version>${hamcrest.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-library</artifactId>
+				<version>${hamcrest.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<!-- to update plugin version run mvn versions:display-plugin-updates -->
 		<plugins>
@@ -75,32 +165,33 @@
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<version>1.4.1</version>
 				<executions>
-				  <execution>
-					<id>enforce-versions</id>
-					<goals>
-					  <goal>enforce</goal>
-					</goals>
-					<configuration>
-					  <rules>
-						<requireMavenVersion>
-						  <version>3.0.4</version>
-						</requireMavenVersion>
-						<requireJavaVersion>
-						  <version>1.7</version>
-						</requireJavaVersion>
-					  </rules>
-					</configuration>
-				  </execution>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.0.4</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>1.7</version>
+								</requireJavaVersion>
+								<DependencyConvergence />
+							</rules>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
-        <extensions>
-            <extension>
-                <groupId>com.google.code.maven-svn-wagon</groupId>
-                <artifactId>maven-svn-wagon</artifactId>
-                <version>1.4</version>
-            </extension>
-        </extensions>
+		<extensions>
+			<extension>
+				<groupId>com.google.code.maven-svn-wagon</groupId>
+				<artifactId>maven-svn-wagon</artifactId>
+				<version>1.4</version>
+			</extension>
+		</extensions>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -185,11 +276,9 @@
 					<version>2.10</version>
 					<configuration>
 						<ajdtVersion>none</ajdtVersion>
-						<!--
-						commented, false is the default value and could be overriden, from console, as opposed when is configured here.
-						<downloadSources>false</downloadSources>
-						<downloadJavadocs>false</downloadJavadocs>
-						-->
+						<!-- commented, false is the default value and could be overriden, 
+							from console, as opposed when is configured here. <downloadSources>false</downloadSources> 
+							<downloadJavadocs>false</downloadJavadocs> -->
 						<projectNameTemplate>[groupId].[artifactId]</projectNameTemplate>
 						<wtpversion>2.0</wtpversion>
 					</configuration>
@@ -341,7 +430,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>2.10.3</version>
 					<configuration>
-                        <additionalparam>-Xdoclint:none</additionalparam>
+						<additionalparam>-Xdoclint:none</additionalparam>
 						<breakiterator>true</breakiterator>
 						<aggregate>true</aggregate>
 						<failOnError>false</failOnError>
@@ -357,7 +446,9 @@
 					<version>1.2.3</version>
 					<executions>
 						<execution>
-							<goals><goal>validate</goal></goals>
+							<goals>
+								<goal>validate</goal>
+							</goals>
 						</execution>
 					</executions>
 				</plugin>
@@ -384,7 +475,7 @@
 						<reports>
 							<report>cim</report>
 							<report>dependencies</report>
-							<!--<report>dependencies-convergence</report>-->
+							<!--<report>dependencies-convergence</report> -->
 							<!-- Issue tracking report will be omitted <report>issue-tracking</report> -->
 							<report>license</report>
 							<report>mailing-list</report>
@@ -409,7 +500,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
+					<additionalparam>-Xdoclint:none</additionalparam>
 					<breakiterator>true</breakiterator>
 					<aggregate>true</aggregate>
 					<links>
@@ -524,6 +615,12 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+			<id>Version99</id>
+			<name>Version 99 Does Not Exist Maven repository</name>
+			<layout>default</layout>
+			<url>http://version99.qos.ch</url>
 		</repository>
 	</repositories>
 </project>
