@@ -6,7 +6,7 @@
 	</prerequisites>
 	<groupId>org.raisercostin.utils</groupId>
 	<artifactId>maven-defaults</artifactId>
-	<version>8</version>
+	<version>9-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Maven Defaults</name>
 	<description>A default configuration for maven projects.</description>
@@ -49,7 +49,7 @@
 		<connection>scm:git:${github.url}.git</connection>
 		<developerConnection>scm:git:${github.url}.git</developerConnection>
 		<url>${github.url}</url>
-		<tag>maven-defaults-8</tag>
+		<tag>maven-defaults-3</tag>
 	</scm>
 	<distributionManagement>
 		<repository>
