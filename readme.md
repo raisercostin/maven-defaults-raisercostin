@@ -1,3 +1,6 @@
+[![Download](https://api.bintray.com/packages/raisercostin/maven/maven-defaults-raisercostin/images/download.svg)](https://bintray.com/raisercostin/maven/maven-defaults-raisercostin/_latestVersion)
+
+
 # Usage
 
 Include this pom as parent.
@@ -19,3 +22,6 @@ No need to include a repository as is available at https://jcenter.bintray.com/o
 # Features
 - Support for scala if src/main/scala exists
 - Support for kotlin if src/main/kotlin exists
+
+# Development
+- To release `mvn release:prepare release:perform -DskipTests=true -Prelease -Darguments="-DskipTests=true -Prelease"` 
