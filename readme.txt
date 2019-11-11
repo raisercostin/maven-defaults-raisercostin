@@ -1,10 +1,21 @@
-== Development
+# Usage
 
-To list tags
-    `git tag`
+Include this pom as parent.
 
-To deploy a version from tag
-    `git checkout <tag>`
-    `mvn deploy -Prelease`
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.raisercostin</groupId>
+    <artifactId>maven-defaults-raisercostin</artifactId>
+    <version>1.0</version>
+  </parent>
+  ...
+</project>
+``` 
 
-Don't forget to go to bintray and publish the items.
+No need to include a repository as is available at https://jcenter.bintray.com/org/raisercostin/maven-defaults-raisercostin/
+
+# Features
+- Support for scala if src/main/scala exists
+- Support for kotlin if src/main/kotlin exists
