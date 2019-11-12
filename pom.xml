@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
@@ -17,16 +16,17 @@
   </scm>
   <distributionManagement>
     <repository>
-      <id>${org}-maven-releases</id>
-      <url>${dist.url};publish=1</url>
+      <id>${dist.id.prefix}-maven-releases</id>
+      <!--<url>${dist.release.url};publish=1</url>-->
+      <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=1</url>
     </repository>
     <snapshotRepository>
-      <id>${org}-maven-snapshots</id>
+      <id>${dist.id.prefix}-maven-snapshots</id>
       <url>${dist.snapshot.url}</url>
       <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
     <site>
-      <id>${org}-maven-sites</id>
+      <id>${dist.id.prefix}-maven-sites</id>
       <url>${dist.site.url}</url>
     </site>
   </distributionManagement>
@@ -40,6 +40,7 @@
     <git.host>github.com</git.host>
     <git.url>https://${git.host}/${git.userOrGroup}/${git.repo}</git.url>
     <org>raisercostin</org>
+    <dist.id.prefix>bintray</dist.id.prefix>
     <bintray.user>raisercostin</bintray.user>
     <bintray.repo>maven</bintray.repo>
     <bintray.package>${project.artifactId}</bintray.package>
@@ -447,7 +448,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore></ignore>
+                    <ignore />
                   </action>
                 </pluginExecution>
               </pluginExecutions>
