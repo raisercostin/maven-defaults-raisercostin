@@ -5,7 +5,6 @@
   <artifactId>maven-defaults-raisercostin</artifactId>
   <version>1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Maven Defaults</name>
   <description>A default configuration for maven projects.</description>
   <url>${git.url}</url>
   <scm>
@@ -17,7 +16,6 @@
   <distributionManagement>
     <repository>
       <id>${dist.id.prefix}-maven-releases</id>
-      <!--<url>${dist.release.url};publish=1</url>-->
       <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}/;publish=1</url>
     </repository>
     <snapshotRepository>
@@ -149,9 +147,19 @@
         <version>3.6.0.1398</version>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
+        <configuration>
+          <encoding>${encoding}</encoding>
+          <source>${source.java.version}</source>
+          <target>${target.java.version}</target>
+          <showDeprecation>true</showDeprecation>
+          <fork>true</fork>
+          <meminitial>512m</meminitial>
+          <maxmem>1024m</maxmem>
+          <optimize>true</optimize>
+          <debug>true</debug>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -271,21 +279,6 @@
         <version>3.1.0</version>
         <configuration>
           <encoding>${encoding}</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <encoding>${encoding}</encoding>
-          <source>${source.java.version}</source>
-          <target>${target.java.version}</target>
-          <showDeprecation>true</showDeprecation>
-          <fork>true</fork>
-          <meminitial>512m</meminitial>
-          <maxmem>1024m</maxmem>
-          <optimize>true</optimize>
-          <debug>true</debug>
         </configuration>
       </plugin>
       <plugin>
