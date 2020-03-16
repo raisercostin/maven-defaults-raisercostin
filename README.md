@@ -25,6 +25,8 @@ Include this pom as parent.
 ``` 
 
 No need to include a repository as is available at https://jcenter.bintray.com/org/raisercostin/maven-defaults-raisercostin/
+If that is not available you can use the repository at https://dl.bintray.com/raisercostin/maven
+- See https://dl.bintray.com/raisercostin/maven/org/raisercostin/maven-defaults-raisercostin/
 
 # Development
 - To release
