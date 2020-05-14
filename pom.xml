@@ -37,40 +37,50 @@
     <url>https://github.com/raisercostin/${project.artifactId}/issues</url>
   </issueManagement>
   <properties>
+    <org>raisercostin</org>
+    <bintray.user>raisercostin</bintray.user>
     <git.userOrGroup>raisercostin</git.userOrGroup>
+
+    <!--  -->
     <git.repo>${project.artifactId}</git.repo>
     <git.host>github.com</git.host>
     <git.url>https://${git.host}/${git.userOrGroup}/${git.repo}</git.url>
-    <org>raisercostin</org>
     <dist.id.prefix>bintray</dist.id.prefix>
-    <bintray.user>raisercostin</bintray.user>
     <bintray.repo>maven</bintray.repo>
     <bintray.package>${project.artifactId}</bintray.package>
-    <maven.build.timestamp.format>yyyy-MM-dd_HH:mm:ss</maven.build.timestamp.format>
-    <timestamp>${maven.build.timestamp}</timestamp>
     <dist.url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${bintray.package}</dist.url>
     <dist.release.url>${dist.url}/releases/</dist.release.url>
     <dist.snapshot.url>${dist.url}/snapshots/</dist.snapshot.url>
     <dist.site.url>${dist.url}/sites/${project.groupId}-${project.artifactId}-${project.version}</dist.site.url>
-    <createChecksum>false</createChecksum>
+
     <!--http://mapstruct.org/documentation/ide-support/ : automatically run annotation processors within the incremental compilation -->
     <m2e.apt.activation>jdt_apt</m2e.apt.activation>
+    <deployment.scope>compile</deployment.scope>
+    <createChecksum>false</createChecksum>
+    <maven.build.timestamp.format>yyyy-MM-dd_HH:mm:ss</maven.build.timestamp.format>
+    <timestamp>${maven.build.timestamp}</timestamp>
+    
+    <!--  -->
+    <resource.delimiter>@</resource.delimiter>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <!-- <java.version>1.8</java.version> <target.java.version>1.8</target.java.version> <source.java.version>1.8</source.java.version> <target.jvm.version>1.8</target.jvm.version> -->
-    <deployment.scope>compile</deployment.scope>
-    <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <log4j.version>1.2.17</log4j.version>
-    <logback.version>1.7.7</logback.version>
-    <mockito.version>3.1.0</mockito.version>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <target.java.version>${java.version}</target.java.version>
+    <source.java.version>${java.version}</source.java.version>
+    <target.jvm.version>${java.version}</target.jvm.version>
+    <springboot-plugin.version>2.2.7.RELEASE</springboot-plugin.version>
+    <maven-plugin-lifecycle-mapping.version>1.0.0</maven-plugin-lifecycle-mapping.version>
+    <scala-maven-plugin.version>4.3.1</scala-maven-plugin.version>
+    <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
     <antlr2.version>2.7.7</antlr2.version>
     <appengine-sdk.version>1.9.80</appengine-sdk.version>
     <artemis.version>2.10.1</artemis.version>
     <aspectj.version>1.9.5</aspectj.version>
-    <assertj.version>3.13.2</assertj.version>
+    <assertj.version>3.14.0</assertj.version>
     <atomikos.version>4.0.6</atomikos.version>
     <awaitility.version>4.0.2</awaitility.version>
     <bitronix.version>2.1.4</bitronix.version>
@@ -190,11 +200,13 @@
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
-    <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+    <!-- <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version> -->
+    <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
     <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
     <maven-help-plugin.version>3.2.0</maven-help-plugin.version>
-    <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+    <!-- <maven-install-plugin.version>2.5.2</maven-install-plugin.version> -->
+    <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
     <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
     <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
     <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
@@ -202,7 +214,8 @@
     <maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
     <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
     <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
-    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    <!-- <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version> -->
+    <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
     <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
     <micrometer.version>1.3.8</micrometer.version>
     <mimepull.version>1.9.13</mimepull.version>
@@ -290,7 +303,7 @@
         <!-- https://stackoverflow.com/questions/16894032/how-to-use-poms-as-a-dependency-in-maven -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.7.RELEASE</version>
+        <version>${springboot-plugin.version}</version>
         <scope>import</scope>
         <type>pom</type> <!-- Not too sure if you needed this
                                   when it's scoped as import,
@@ -318,15 +331,114 @@
       </dependency>
       <!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> <version>99-empty</version> <scope>runtime</scope> 
         </dependency> -->
+      <dependency>
+        <groupId>org.scala-lang</groupId>
+        <artifactId>scala-library</artifactId>
+        <version>${scala.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
     <plugins>
-      <!-- to update plugin version run mvn versions:display-plugin-updates -->
+      <!-- old technologies - not available in springboot -->
+      <!-- 
+      <plugin>
+        <artifactId>maven-ejb-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>2.7</version>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>2.5.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <version>2.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-codegen-plugin</artifactId>
+        <version>3.2.9</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-java2ws-plugin</artifactId>
+        <version>3.3.3</version>
+      </plugin>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.26</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tomcat-maven-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <url>http://localhost:8080/manager</url>
+          <server>localhost</server>
+          <finalName>app</finalName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>1.5.0</version>
+      </plugin>
+      https://mvnrepository.com/artifact/com.atlassian.maven.plugins/maven-dependency-tracker-plugin/2.0.2
+      <plugin>
+        <groupId>com.atlassian.maven.plugins</groupId>
+        <artifactId>maven-dependency-tracker-plugin</artifactId>
+        <version>1.2.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      -->
+      <!-- 
+      <extensions>
+        <extension>
+          <groupId>com.google.code.maven-svn-wagon</groupId>
+          <artifactId>maven-svn-wagon</artifactId>
+          <version>1.4</version>
+        </extension>
+      </extensions>      
+       -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.10</version>
+        <configuration>
+          <ajdtVersion>none</ajdtVersion>
+          <!-- commented, false is the default value and could be overriden, from console, as opposed when is configured here. <downloadSources>false</downloadSources> 
+            <downloadJavadocs>false</downloadJavadocs> -->
+          <projectNameTemplate>[groupId].[artifactId]</projectNameTemplate>
+          <wtpversion>2.0</wtpversion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <goals>deploy</goals>
+          <useEditMode>true</useEditMode>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <resume>false</resume>
+          <useReleaseProfile>false</useReleaseProfile>
+          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+          <preparationGoals>clean install</preparationGoals>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
@@ -334,8 +446,24 @@
         <version>3.6.0.1398</version>
       </plugin>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>emma-maven-plugin</artifactId>
+        <version>1.0-alpha-3</version>
+        <!-- <groupId>emma</groupId> <artifactId>maven-emma-plugin</artifactId> <version>0.5</version> -->
+      </plugin>
+      <plugin>
+        <groupId>org.dstovall</groupId>
+        <artifactId>onejar-maven-plugin</artifactId>
+        <version>1.4.4</version>
+      </plugin>
+
+      <!-- to update plugin version run mvn versions:display-plugin-updates -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
         <configuration>
           <encoding>${encoding}</encoding>
           <source>${source.java.version}</source>
@@ -351,7 +479,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.0.0-M2</version>
         <executions>
           <execution>
             <id>enforce-maven-version</id>
@@ -369,13 +496,9 @@
           </execution>
         </executions>
       </plugin>
-      <!-- </plugins> <extensions> <extension> <groupId>com.google.code.maven-svn-wagon</groupId> <artifactId>maven-svn-wagon</artifactId> <version>1.4</version> 
-        </extension> </extensions> -->
-      <!-- <pluginManagement> <plugins> -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.2</version>
         <configuration>
           <archive>
             <manifest>
@@ -399,7 +522,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.2.3</version>
         <configuration>
           <ignoreWebxml>false</ignoreWebxml>
           <archive>
@@ -422,48 +544,18 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-ejb-plugin</artifactId>
-        <version>3.0.1</version>
-      </plugin>
-      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>jaxb2-maven-plugin</artifactId>
-        <version>2.5.0</version>
       </plugin>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>jboss-packaging-maven-plugin</artifactId>
-        <version>2.2</version>
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.0.0-M1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.10</version>
-        <configuration>
-          <ajdtVersion>none</ajdtVersion>
-          <!-- commented, false is the default value and could be overriden, from console, as opposed when is configured here. <downloadSources>false</downloadSources> 
-            <downloadJavadocs>false</downloadJavadocs> -->
-          <projectNameTemplate>[groupId].[artifactId]</projectNameTemplate>
-          <wtpversion>2.0</wtpversion>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
         <configuration>
           <encoding>${encoding}</encoding>
         </configuration>
@@ -471,7 +563,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>3.1.0</version>
         <configuration>
           <filesets>
             <fileset>
@@ -484,22 +575,7 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
-        <configuration>
-          <goals>deploy</goals>
-          <useEditMode>true</useEditMode>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-          <resume>false</resume>
-          <useReleaseProfile>false</useReleaseProfile>
-          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-          <preparationGoals>clean install</preparationGoals>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M3</version>
         <configuration>
           <trimStackTrace>false</trimStackTrace>
           <useFile>false</useFile>
@@ -508,7 +584,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.1.0</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -520,77 +595,25 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>tomcat-maven-plugin</artifactId>
-        <version>1.1</version>
-        <configuration>
-          <url>http://localhost:8080/manager</url>
-          <server>localhost</server>
-          <finalName>app</finalName>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-install-plugin</artifactId>
-        <version>3.0.0-M1</version>
       </plugin>
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.8.2</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-help-plugin</artifactId>
-        <version>3.2.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-ear-plugin</artifactId>
-        <version>3.0.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-codegen-plugin</artifactId>
-        <version>3.2.9</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-java2ws-plugin</artifactId>
-        <version>3.3.3</version>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.1.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
-      </plugin>
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>6.1.26</version>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>emma-maven-plugin</artifactId>
-        <version>1.0-alpha-3</version>
-        <!-- <groupId>emma</groupId> <artifactId>maven-emma-plugin</artifactId> <version>0.5</version> -->
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>jboss-maven-plugin</artifactId>
-        <version>1.5.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.dstovall</groupId>
-        <artifactId>onejar-maven-plugin</artifactId>
-        <version>1.4.4</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.1</version>
         <configuration>
           <additionalparam>-Xdoclint:none</additionalparam>
           <breakiterator>true</breakiterator>
@@ -602,37 +625,340 @@
           </links>
         </configuration>
       </plugin>
-      <!-- https://mvnrepository.com/artifact/com.atlassian.maven.plugins/maven-dependency-tracker-plugin/2.0.2 -->
-      <!-- <plugin> <groupId>com.atlassian.maven.plugins</groupId> <artifactId>maven-dependency-tracker-plugin</artifactId> <version>1.2.3</version> 
-        <executions> <execution> <goals> <goal>validate</goal> </goals> </execution> </executions> </plugin> -->
     </plugins>
     <!-- </pluginManagement> -->
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${springboot-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.johnzon</groupId>
+          <artifactId>johnzon-maven-plugin</artifactId>
+          <version>${johnzon.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-maven-plugin</artifactId>
+          <version>${kotlin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.jooq</groupId>
+          <artifactId>jooq-codegen-maven</artifactId>
+          <version>${jooq.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${maven-antrun-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${maven-assembly-plugin.version}</version>
+          <configuration>
+            <recompressZippedFiles>false</recompressZippedFiles>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven-clean-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven-deploy-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven-dependency-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven-enforcer-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven-failsafe-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven-install-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-invoker-plugin</artifactId>
+          <version>${maven-invoker-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-help-plugin</artifactId>
+          <version>${maven-help-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven-jar-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven-javadoc-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${maven-shade-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven-site-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${maven-source-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${maven-war-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${build-helper-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>${versions-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>xml-maven-plugin</artifactId>
+          <version>${xml-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>flatten-maven-plugin</artifactId>
+          <version>${flatten-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.flywaydb</groupId>
+          <artifactId>flyway-maven-plugin</artifactId>
+          <version>${flyway.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.infinispan</groupId>
+          <artifactId>infinispan-protocol-parser-generator-maven-plugin</artifactId>
+          <version>${infinispan.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <version>${git-commit-id-plugin.version}</version>
+        </plugin>
+
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
+          <version>{maven-plugin-lifecycle-mapping.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${scala-maven-plugin.version}</version>
           <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>net.alchim31.maven</groupId>
-                    <artifactId>scala-maven-plugin</artifactId>
-                    <versionRange>[3.2.2,)</versionRange>
-                    <goals>
-                      <goal>add-source</goal>
-                      <goal>compile</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
+            <recompileMode>incremental</recompileMode>
+            <args>
+              <arg>-target:jvm-${target.jvm.version}</arg>
+              <arg>-language:experimental.macros</arg>
+              <arg>-deprecation</arg>
+            </args>
+            <javacArgs>
+              <javacArg>-source</javacArg>
+              <javacArg>${source.java.version}</javacArg>
+              <javacArg>-target</javacArg>
+              <javacArg>${target.java.version}</javacArg>
+            </javacArgs>
+            <scalaVersion>${scala.version}</scalaVersion>
+          </configuration>
+        </plugin>
+        
+        <!-- from https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-starter-parent/2.2.7.RELEASE/spring-boot-starter-parent-2.2.7.RELEASE.pom -->
+        <plugin>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-maven-plugin</artifactId>
+          <version>${kotlin.version}</version>
+          <executions>
+            <execution>
+              <id>compile</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>test-compile</id>
+              <phase>test-compile</phase>
+              <goals>
+                <goal>test-compile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <jvmTarget>${java.version}</jvmTarget>
+            <javaParameters>true</javaParameters>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <parameters>true</parameters>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>${start-class}</mainClass>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>${start-class}</mainClass>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <configuration>
+            <mainClass>${start-class}</mainClass>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <configuration>
+            <delimiters>
+              <delimiter>${resource.delimiter}</delimiter>
+            </delimiters>
+            <useDefaultDelimiters>false</useDefaultDelimiters>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>revision</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <verbose>true</verbose>
+            <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>repackage</id>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <mainClass>${start-class}</mainClass>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+                    <resource>META-INF/spring.factories</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>${start-class}</mainClass>
+                  </transformer>
+                </transformers>
+              </configuration>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <version>${springboot-plugin.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+            <createDependencyReducedPom>true</createDependencyReducedPom>
+            <filters>
+              <filter>
+                <artifact>*:*</artifact>
+                <excludes>
+                  <exclude>META-INF/*.SF</exclude>
+                  <exclude>META-INF/*.DSA</exclude>
+                  <exclude>META-INF/*.RSA</exclude>
+                </excludes>
+              </filter>
+            </filters>
           </configuration>
         </plugin>
       </plugins>
@@ -799,7 +1125,6 @@
         <dependency>
           <groupId>org.scala-lang</groupId>
           <artifactId>scala-library</artifactId>
-          <version>${scala.version}</version>
         </dependency>
       </dependencies>
       <build>
@@ -809,7 +1134,6 @@
             <plugin>
               <groupId>org.eclipse.m2e</groupId>
               <artifactId>lifecycle-mapping</artifactId>
-              <version>1.0.0</version>
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
@@ -870,21 +1194,6 @@
           <plugin>
             <groupId>net.alchim31.maven</groupId>
             <artifactId>scala-maven-plugin</artifactId>
-            <version>3.2.2</version>
-            <configuration>
-              <recompileMode>incremental</recompileMode>
-              <args>
-                <arg>-target:jvm-${target.jvm.version}</arg>
-                <arg>-language:experimental.macros</arg>
-                <arg>-deprecation</arg>
-              </args>
-              <javacArgs>
-                <javacArg>-source</javacArg>
-                <javacArg>${source.java.version}</javacArg>
-                <javacArg>-target</javacArg>
-                <javacArg>${target.java.version}</javacArg>
-              </javacArgs>
-            </configuration>
             <executions>
               <execution>
                 <id>scala-compile</id>
@@ -914,10 +1223,8 @@
             <artifactId>maven-eclipse-plugin</artifactId>
             <configuration>
               <classpathContainers>
-                <classpathContainer> org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${target.java.version} 
-                </classpathContainer>
-                <classpathContainer> org.scala-ide.sdt.launching.SCALA_CONTAINER 
-                </classpathContainer>
+                <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${target.java.version}</classpathContainer>
+                <classpathContainer>org.scala-ide.sdt.launching.SCALA_CONTAINER</classpathContainer>
               </classpathContainers>
               <projectnatures>
                 <projectnature>org.scala-ide.sdt.core.scalanature</projectnature>
@@ -945,7 +1252,6 @@
       <properties>
         <junitJupiter.version>5.4.2</junitJupiter.version>
         <junitPlatform.version>1.4.2</junitPlatform.version>
-        <assertj.version>3.14.0</assertj.version>
         <hamcrest.version>2.2</hamcrest.version>
       </properties>
       <dependencies>
