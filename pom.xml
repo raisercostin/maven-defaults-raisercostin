@@ -1283,10 +1283,13 @@
       <properties>
       </properties>
       <dependencies>
+        <!--
+        is taken care by scala compiler
         <dependency>
           <groupId>org.scala-lang</groupId>
           <artifactId>scala-library</artifactId>
         </dependency>
+        -->
       </dependencies>
       <build>
         <pluginManagement>
@@ -1294,31 +1297,37 @@
             <!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
             <!-- copy it to your pom.xml in your scala project -->
             <!--
-            <plugin>
-              <groupId>org.eclipse.m2e</groupId>
-              <artifactId>lifecycle-mapping</artifactId>
-              <version>1.0.0</version>
-              <configuration>
-                <lifecycleMappingMetadata>
-                  <pluginExecutions>
-                    <pluginExecution>
-                      <pluginExecutionFilter>
-                        <groupId>net.alchim31.maven</groupId>
-                        <artifactId>scala-maven-plugin</artifactId>
-                        <versionRange>[3.2.2,)</versionRange>
-                        <goals>
-                          <goal>add-source</goal>
-                          <goal>compile</goal>
-                        </goals>
-                      </pluginExecutionFilter>
-                      <action>
-                        <ignore />
-                      </action>
-                    </pluginExecution>
-                  </pluginExecutions>
-                </lifecycleMappingMetadata>
-              </configuration>
-            </plugin>
+              <build>
+                <pluginManagement>
+                  <plugins>
+                    <plugin>
+                      <groupId>org.eclipse.m2e</groupId>
+                      <artifactId>lifecycle-mapping</artifactId>
+                      <version>1.0.0</version>
+                      <configuration>
+                        <lifecycleMappingMetadata>
+                          <pluginExecutions>
+                            <pluginExecution>
+                              <pluginExecutionFilter>
+                                <groupId>net.alchim31.maven</groupId>
+                                <artifactId>scala-maven-plugin</artifactId>
+                                <versionRange>[3.2.2,)</versionRange>
+                                <goals>
+                                  <goal>add-source</goal>
+                                  <goal>compile</goal>
+                                </goals>
+                              </pluginExecutionFilter>
+                              <action>
+                                <ignore />
+                              </action>
+                            </pluginExecution>
+                          </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                      </configuration>
+                    </plugin>
+                  </plugins>
+                </pluginManagement>
+              </build>
             -->
           </plugins>
         </pluginManagement>
