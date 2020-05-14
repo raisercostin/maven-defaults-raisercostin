@@ -76,7 +76,7 @@
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <junit-platform.version>1.7.0-M1</junit-platform.version>
     <scala-base.version>2.11</scala-base.version>
-    <scala.version>2.13.2</scala.version>
+    <scala.version>${scala-base.version}.12</scala.version>
     
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
