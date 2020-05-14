@@ -936,13 +936,6 @@
           <artifactId>git-commit-id-plugin</artifactId>
           <version>${git-commit-id-plugin.version}</version>
         </plugin>
-
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-        </plugin>
         <plugin>
           <groupId>net.alchim31.maven</groupId>
           <artifactId>scala-maven-plugin</artifactId>
@@ -1298,10 +1291,13 @@
       <build>
         <pluginManagement>
           <plugins>
-            <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+            <!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+            <!-- copy it to your pom.xml in your scala project -->
+            <!--
             <plugin>
               <groupId>org.eclipse.m2e</groupId>
               <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
               <configuration>
                 <lifecycleMappingMetadata>
                   <pluginExecutions>
@@ -1323,6 +1319,7 @@
                 </lifecycleMappingMetadata>
               </configuration>
             </plugin>
+            -->
           </plugins>
         </pluginManagement>
         <plugins>
