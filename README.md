@@ -33,3 +33,20 @@ No need to include a repository as is available at https://jcenter.bintray.com/o
   `mvn versions:update-properties -Pjunit5`
 - See possible dependency updates
   `mvn versions:display-dependency-updates`
+  
+- To fix the following warnings
+```
+[INFO] [WARNING] Some problems were encountered while building the effective model for org.raisercostin:maven-defaults-raisercostin:pom:1.4
+[INFO] [WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: commons-io:commons-io:jar -> duplicate declaration of version 2.6 @ line 437, column 19
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.jetbrains.kotlin:kotlin-maven-plugin @ line 979, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-compiler-plugin @ line 1004, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-failsafe-plugin @ line 1010, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-jar-plugin @ line 1024, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-war-plugin @ line 1035, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.codehaus.mojo:exec-maven-plugin @ line 1046, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-resources-plugin @ line 1053, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin pl.project13.maven:git-commit-id-plugin @ line 1062, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.springframework.boot:spring-boot-maven-plugin @ line 1079, column 17
+[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-shade-plugin @ line 1094, column 17
+[INFO] [WARNING]
+```
