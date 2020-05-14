@@ -67,12 +67,11 @@
     <source.java.version>${java.version}</source.java.version>
     <target.jvm.version>${java.version}</target.jvm.version>
     <springboot-plugin.version>2.2.7.RELEASE</springboot-plugin.version>
-    <maven-plugin-lifecycle-mapping.version>1.0.0</maven-plugin-lifecycle-mapping.version>
     <scala-maven-plugin.version>4.3.1</scala-maven-plugin.version>
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <junit-platform.version>1.7.0-M1</junit-platform.version>
     <scala-base.version>2.11</scala-base.version>
-    <scala.version>2.13.2</scala.version>
+    <scala.version>2.11.12</scala.version>
     <mapstruct.version>1.3.1.Final</mapstruct.version>
     <vavr.version>0.10.2</vavr.version>
     <lombok.version>1.18.10</lombok.version>
@@ -942,7 +941,7 @@
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
-          <version>{maven-plugin-lifecycle-mapping.version}</version>
+          <version>1.0.0</version>
         </plugin>
         <plugin>
           <groupId>net.alchim31.maven</groupId>
