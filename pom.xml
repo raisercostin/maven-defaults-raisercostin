@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
@@ -72,7 +76,10 @@
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <junit-platform.version>1.7.0-M1</junit-platform.version>
     <scala-base.version>2.11</scala-base.version>
-    <scala.version>${scala-base.version}.12</scala.version>
+    <scala.version>2.13.2</scala.version>
+    <mapstruct.version>1.3.1.Final</mapstruct.version>
+    <vavr.version>0.10.2</vavr.version>
+    <lombok.version>1.18.10</lombok.version>
     
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
@@ -299,8 +306,9 @@
   </developers>
   <dependencyManagement>
     <dependencies>
+      <!-- https://stackoverflow.com/questions/16894032/how-to-use-poms-as-a-dependency-in-maven -->
+      <!-- Spring Boot BOM -->
       <dependency>
-        <!-- https://stackoverflow.com/questions/16894032/how-to-use-poms-as-a-dependency-in-maven -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${springboot-plugin.version}</version>
@@ -309,6 +317,15 @@
                                   when it's scoped as import,
                                   but just in case -->
       </dependency>
+      <!-- Camel BOM -->
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-spring-boot-dependencies</artifactId>
+        <version>2.25.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!-- disable any already configured bridge -->
       <!-- @see http://day-to-day-stuff.blogspot.be/2007/10/announcement-version-99-does-not-exist.html -->
       <dependency>
@@ -331,11 +348,177 @@
       </dependency>
       <!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> <version>99-empty</version> <scope>runtime</scope> 
         </dependency> -->
+        
+        
+      <!-- additional dependencies -->
       <dependency>
         <groupId>org.scala-lang</groupId>
         <artifactId>scala-library</artifactId>
         <version>${scala.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.raisercostin</groupId>
+        <artifactId>jedio</artifactId>
+        <version>0.20</version>
+      </dependency>
+      <dependency>
+        <groupId>org.raisercostin</groupId>
+        <artifactId>jedi-nodes-java</artifactId>
+        <version>0.6</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>27.1-jre</version>
+      </dependency>
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr</artifactId>
+        <version>${vavr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr-jackson</artifactId>
+        <version>${vavr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr-match</artifactId>
+        <version>${vavr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr-gson</artifactId>
+        <version>${vavr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr-test</artifactId>
+        <version>${vavr.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-annotations</artifactId>
+        <version>4.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>3.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.9.4</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>4.1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>4.1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.typesafe</groupId>
+        <artifactId>config</artifactId>
+        <version>1.3.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <!-- databases -->
+      <dependency>
+        <groupId>commons-dbcp</groupId>
+        <artifactId>commons-dbcp</artifactId>
+        <version>1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-pool</groupId>
+        <artifactId>commons-pool</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.200</version>
+      </dependency>
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.2.11</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.4.1.jre11</version>
+      </dependency>
+      <!--oracle start-->
+      <!-- ojdbc6 -->
+      <dependency>
+        <groupId>com.oracle.jdbc</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>12.2.0.1</version>
+        <!-- <scope>system</scope> -->
+        <!-- <systemPath>${basedir}/src/build/ojdbc8-12.2.0.1.jar</systemPath> -->
+      </dependency>
+      <dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>orai18n</artifactId>
+        <version>11.2.0.4</version>
+        <!-- <scope>system</scope> -->
+        <!-- <systemPath>${basedir}/src/build/orai18n-11.2.0.4.jar</systemPath> -->
+      </dependency>
+      <dependency>
+        <groupId>com.oracle.jdbc</groupId>
+        <artifactId>xdb6</artifactId>
+        <version>1.0</version>
+        <!-- <scope>system</scope> -->
+        <!-- <systemPath>${basedir}/src/build/xdb6.jar</systemPath> -->
+      </dependency>
+      <dependency>
+        <groupId>com.oracle.jdbc</groupId>
+        <artifactId>xmlparserv2</artifactId>
+        <version>12.2.1.3</version>
+        <!-- <scope>system</scope> -->
+        <!-- <systemPath>${basedir}/src/build/xmlparserv2-12.2.1.3-patched.jar</systemPath> -->
+      </dependency>
+      <!--oracle end-->
     </dependencies>
   </dependencyManagement>
   <build>

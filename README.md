@@ -31,3 +31,5 @@ No need to include a repository as is available at https://jcenter.bintray.com/o
   `mvn release:prepare release:perform -DskipTests=true -Prelease -Darguments="-DskipTests=true -Prelease"` 
 - To update versions for a profile
   `mvn versions:update-properties -Pjunit5`
+- See possible dependency updates
+  `mvn versions:display-dependency-updates`
