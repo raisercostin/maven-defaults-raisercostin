@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
-  <version>1.4-scala2.11</version>
+  <version>1.4-scala3.11-SNAPSHOT</version>
   <packaging>pom</packaging>
   <description>A default configuration for maven projects.</description>
   <url>${git.url}</url>
@@ -11,7 +11,7 @@
     <connection>scm:git:${git.url}.git</connection>
     <developerConnection>scm:git:${git.url}.git</developerConnection>
     <url>${git.url}</url>
-    <tag>maven-defaults-raisercostin-1.4-scala2.11</tag>
+    <tag>${project.artifactId}-${project.version}</tag>
   </scm>
   <distributionManagement>
     <repository>
