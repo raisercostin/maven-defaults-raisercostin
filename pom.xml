@@ -1347,8 +1347,8 @@
                       <property>scala.version</property>
                     </requireProperty>
                     <requireProperty>
-                      <property>scala.base</property>
-                      <message>scala.base should be defined like 2.10 2.11 2.12 2.13</message>
+                      <property>scala-base.version</property>
+                      <message>scala-base.version should be defined like 2.10 2.11 2.12 2.13</message>
                     </requireProperty>
                   </rules>
                   <fail>true</fail>
