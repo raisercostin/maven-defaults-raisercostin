@@ -75,6 +75,8 @@
     <scala-maven-plugin.version>4.3.1</scala-maven-plugin.version>
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <junit-platform.version>1.7.0-M1</junit-platform.version>
+    <scala-base.version>2.11</scala-base.version>
+    <scala.version>2.13.2</scala.version>
     
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
@@ -1244,36 +1246,34 @@
         </plugins>
       </build>
     </profile>
+    <!-- active in all profiles -->
     <profile>
       <id>junit5</id>
       <activation>
         <file>
-          <exists>${basedir}/junit5.enable</exists>
+          <missing>${basedir}/junit5.disable</missing>
         </file>
       </activation>
       <dependencies>
         <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
-          <version>${junit-jupiter.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-engine</artifactId>
-          <version>${junit-jupiter.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-params</artifactId>
-          <version>${junit-jupiter.version}</version>
           <scope>test</scope>
         </dependency>
+        <!-- 
         <dependency>
           <groupId>org.junit.platform</groupId>
           <artifactId>junit-platform-runner</artifactId>
-          <version>${junit-platform.version}</version>
           <scope>test</scope>
           <exclusions>
             <exclusion>
@@ -1285,31 +1285,27 @@
         <dependency>
           <groupId>org.mockito</groupId>
           <artifactId>mockito-core</artifactId>
-          <version>${mockito.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.mockito</groupId>
           <artifactId>mockito-junit-jupiter</artifactId>
-          <version>${mockito.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.hamcrest</groupId>
           <artifactId>hamcrest-core</artifactId>
-          <version>${hamcrest.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.hamcrest</groupId>
           <artifactId>hamcrest-library</artifactId>
-          <version>${hamcrest.version}</version>
           <scope>test</scope>
         </dependency>
+         -->
         <dependency>
           <groupId>org.assertj</groupId>
           <artifactId>assertj-core</artifactId>
-          <version>${assertj.version}</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
