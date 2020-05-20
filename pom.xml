@@ -102,6 +102,10 @@
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <junit-platform.version>1.7.0-M1</junit-platform.version>
     
+    <!-- others -->
+    <jedio.version>0.24</jedio.version>
+    <jedi-nodes.version>0.7</jedi-nodes.version>
+    
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
     <antlr2.version>2.7.7</antlr2.version>
@@ -380,12 +384,12 @@
       <dependency>
         <groupId>org.raisercostin</groupId>
         <artifactId>jedio</artifactId>
-        <version>0.20</version>
+        <version>${jedio.version}</version>
       </dependency>
       <dependency>
         <groupId>org.raisercostin</groupId>
         <artifactId>jedi-nodes-java</artifactId>
-        <version>0.6</version>
+        <version>${jedi-nodes.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.guava</groupId>
