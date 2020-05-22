@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
@@ -674,6 +678,7 @@
           <maxmem>1024m</maxmem>
           <optimize>true</optimize>
           <debug>true</debug>
+          <parameters>true</parameters>
         </configuration>
       </plugin>
       <plugin>
@@ -826,14 +831,8 @@
         </configuration>
       </plugin>
     </plugins>
-    <!-- </pluginManagement> -->
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>${springboot.version}</version>
-        </plugin>
         <plugin>
           <groupId>org.apache.johnzon</groupId>
           <artifactId>johnzon-maven-plugin</artifactId>
@@ -876,10 +875,6 @@
           <version>${maven-enforcer-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${maven-failsafe-plugin.version}</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>${maven-install-plugin.version}</version>
         </plugin>
@@ -892,20 +887,8 @@
           <version>${maven-help-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>${maven-jar-plugin.version}</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven-javadoc-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${maven-resources-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>${maven-shade-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
@@ -920,18 +903,9 @@
           <version>${maven-surefire-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>${maven-war-plugin.version}</version>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>${build-helper-maven-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>${exec-maven-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -957,11 +931,6 @@
           <groupId>org.infinispan</groupId>
           <artifactId>infinispan-protocol-parser-generator-maven-plugin</artifactId>
           <version>${infinispan.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>pl.project13.maven</groupId>
-          <artifactId>git-commit-id-plugin</artifactId>
-          <version>${git-commit-id-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>net.alchim31.maven</groupId>
@@ -1011,13 +980,8 @@
           </configuration>
         </plugin>
         <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <parameters>true</parameters>
-          </configuration>
-        </plugin>
-        <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven-failsafe-plugin.version}</version>
           <executions>
             <execution>
               <goals>
@@ -1032,6 +996,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven-jar-plugin.version}</version>
           <configuration>
             <archive>
               <manifest>
@@ -1043,6 +1008,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
+          <version>${maven-war-plugin.version}</version>
           <configuration>
             <archive>
               <manifest>
@@ -1055,12 +1021,14 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-maven-plugin.version}</version>
           <configuration>
             <mainClass>${start-class}</mainClass>
           </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
           <configuration>
             <delimiters>
               <delimiter>${resource.delimiter}</delimiter>
@@ -1071,6 +1039,7 @@
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
+          <version>${git-commit-id-plugin.version}</version>
           <executions>
             <execution>
               <goals>
@@ -1088,6 +1057,7 @@
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${springboot.version}</version>
           <executions>
             <execution>
               <id>repackage</id>
@@ -1102,6 +1072,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-shade-plugin</artifactId>
+          <version>${maven-shade-plugin.version}</version>
           <executions>
             <execution>
               <phase>package</phase>
