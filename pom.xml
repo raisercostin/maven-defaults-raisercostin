@@ -101,6 +101,7 @@
     <!-- others -->
     <jedio.version>0.27</jedio.version>
     <jedi-nodes.version>0.9</jedi-nodes.version>
+    <raisercostin-commons.version>2.27</raisercostin-commons.version>
     
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
     <activemq.version>5.15.12</activemq.version>
@@ -376,6 +377,11 @@
         <groupId>org.scala-lang</groupId>
         <artifactId>scala-library</artifactId>
         <version>${scala.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.raisercostin</groupId>
+        <artifactId>raisercostin-commons</artifactId>
+        <version>${raisercostin-commons.version}</version>
       </dependency>
       <dependency>
         <groupId>org.raisercostin</groupId>
