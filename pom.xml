@@ -657,12 +657,11 @@
         <version>1.0-alpha-3</version>
         <!-- <groupId>emma</groupId> <artifactId>maven-emma-plugin</artifactId> <version>0.5</version> -->
       </plugin>
-      <dependency>
+      <plugin>
         <groupId>com.jolira</groupId>
         <artifactId>onejar-maven-plugin</artifactId>
         <version>1.4.4</version>
-      </dependency>
-
+      </plugin>
       <!-- to update plugin version run mvn versions:display-plugin-updates -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
