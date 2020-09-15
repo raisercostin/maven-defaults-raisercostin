@@ -99,8 +99,8 @@
     <junit-platform.version>1.7.0-M1</junit-platform.version>
     
     <!-- others -->
-    <jedio.version>0.42</jedio.version>
-    <jedi-nodes.version>0.13</jedi-nodes.version>
+    <jedio.version>0.43</jedio.version>
+    <jedi-nodes.version>0.15</jedi-nodes.version>
     <raisercostin-commons.version>2.27</raisercostin-commons.version>
     
     <!-- copied from spring-boot-dependencies:2.2.7.RELEASE since import does so for managedDependencies -->
