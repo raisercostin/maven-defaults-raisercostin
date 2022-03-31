@@ -61,7 +61,7 @@
     <dist.site.url>git:gh-pages://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.site.url>
     <!-- <dist.snapshot.url>git:snapshots://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.snapshot.url> -->
     <!-- <dist.snapshot.url>scm:git://github.com/raisercostin/maven-repo.git</dist.snapshot.url> -->
-    <dist.snapshot.url>file://${project.build.directory}/mvn-artifact</dist.snapshot.url>
+    <dist.snapshot.url>file://${project.build.directory}/myArtifacts</dist.snapshot.url>
     <!--
       Some samples
       - git:master:https2://github.com/raisercostin/jedio.git
@@ -675,8 +675,8 @@
         <version>0.12</version>
         <configuration>
           <message>Maven artifacts for ${project.version}</message>
-          <noJekyll>true</noJekyll>
-          <outputDirectory>${project.build.directory}</outputDirectory>
+          <noJekyll>false</noJekyll>
+          <outputDirectory>${project.build.directory}/myArtifacts</outputDirectory>
           <branch>refs/heads/master</branch>
           <includes>
             <include>**/*</include>
@@ -702,7 +702,7 @@
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
-          <altDeploymentRepository>dist-snapshot-${dist.id}::file://${project.build.directory}/mvn-artifact</altDeploymentRepository>
+          <altDeploymentRepository>dist-snapshot-${dist.id}::file://${project.build.directory}/myArtifacts</altDeploymentRepository>
         </configuration>
       </plugin>
       <plugin>
