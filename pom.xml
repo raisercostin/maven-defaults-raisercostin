@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
@@ -41,10 +45,12 @@
       <id>dist-snapshot-${dist.id}</id>
       <url>${dist.snapshot.url}</url>
     </snapshotRepository>
+    <!-- 
     <site>
       <id>dist-site-${dist.id}</id>
       <url>${dist.site.url}</url>
     </site>
+     -->
   </distributionManagement>
   <!-- all libraries versions are defined in a versions default profile  -->
   <properties>
@@ -61,6 +67,7 @@
     <!-- <dist.snapshot.url>scm:git://github.com/raisercostin/maven-repo.git</dist.snapshot.url> -->
     <dist.release.url>file://${project.build.directory}/myArtifacts</dist.release.url>
     <dist.snapshot.url>file://${project.build.directory}/myArtifacts</dist.snapshot.url>
+    <dist.site.url>file://${project.build.directory}/mySitess</dist.site.url>
     <!--
       Some samples
       - git:master:https2://github.com/raisercostin/jedio.git
@@ -711,10 +718,22 @@
         </configuration>
         <executions>
           <execution>
+            <id>id1</id>
             <goals>
               <goal>site</goal>
             </goals>
             <phase>deploy</phase>
+          </execution>
+          <execution>
+            <id>id2</id>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>site-deploy</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/mySites</outputDirectory>
+              <repositoryName>maven-site</repositoryName>
+            </configuration>
           </execution>
         </executions>
       </plugin>
