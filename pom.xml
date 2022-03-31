@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
@@ -79,11 +80,13 @@
     <!--<docker.image.prefix>registry.gitlab.com/dcsi/all/docker/custom</docker.image.prefix> -->
     <docker.image.prefix>com.revomatico</docker.image.prefix>
     <experimentalCoroutines>enable</experimentalCoroutines>
+    <flatten-maven-plugin.version>1.2.2</flatten-maven-plugin.version>
     <git.host>github.com</git.host>
     <git.hostGropRep>${git.host}/${git.userOrGroup}/${git.repo}</git.hostGropRep>
     <git.repo>${project.artifactId}</git.repo>
     <git.url>https://${git.host}/${git.userOrGroup}/${git.repo}</git.url>
     <git.userOrGroup>raisercostin</git.userOrGroup>
+    <infinispan.version>10.0.0.Beta3</infinispan.version>
     <issues.url>${git.url}/issues</issues.url>
     <jackson-bom.version>${jackson.version}</jackson-bom.version>
     <jackson.version>2.10.4</jackson.version>
@@ -92,7 +95,7 @@
     <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
     <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     <!--downgraded. works better than 3.1.2 that has a bug on :go-offline -->
     <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
     <!-- <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version> -->
@@ -107,7 +110,7 @@
     <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-    <maven-shade-plugin.version>3.2.3</maven-shade-plugin.version>
+    <maven-shade-plugin.version>3.3.0</maven-shade-plugin.version>
     <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
     <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
     <!-- <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version> -->
@@ -424,7 +427,7 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.7.201606060606</version>
+          <version>0.8.7</version>
           <executions>
             <execution>
               <goals>
@@ -602,7 +605,7 @@
                   <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                     <resource>META-INF/spring.schemas</resource>
                   </transformer>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                   <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                     <mainClass>${start-class}</mainClass>
                   </transformer>
@@ -1015,7 +1018,7 @@
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.6.0.1398</version>
+        <version>3.9.1.2184</version>
       </plugin>
       <!--
       <plugin>
@@ -1081,7 +1084,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.5</version>
+        <version>3.2.0</version>
         <configuration>
           <aggregate>false</aggregate>
         </configuration>
@@ -1183,7 +1186,6 @@
         <elasticsearch.version>6.8.8</elasticsearch.version>
         <embedded-mongo.version>2.2.0</embedded-mongo.version>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <flatten-maven-plugin.version>1.2.2</flatten-maven-plugin.version>
         <flyway.version>6.4.2</flyway.version>
         <freemarker.version>2.3.30</freemarker.version>
         <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
@@ -1203,7 +1205,6 @@
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <httpclient.version>4.5.12</httpclient.version>
         <httpcore.version>4.4.13</httpcore.version>
-        <infinispan.version>10.0.0.Beta3</infinispan.version>
         <influxdb-java.version>2.15</influxdb-java.version>
         <jackson.version>2.10.4</jackson.version>
         <jakarta-activation.version>1.2.2</jakarta-activation.version>
@@ -1398,7 +1399,7 @@
           <exists>${basedir}/src/main/scala</exists>
         </file>
       </activation>
-      <properties />
+      <properties/>
       <dependencies>
         <!--
         is taken care by scala compiler

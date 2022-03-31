@@ -18,7 +18,7 @@ Include this pom as parent.
   <parent>
     <groupId>org.raisercostin</groupId>
     <artifactId>maven-defaults-raisercostin</artifactId>
-    <version>1.0</version>
+    <version>1.18</version>
   </parent>
   ...
 </project>
