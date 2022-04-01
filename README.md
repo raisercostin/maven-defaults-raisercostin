@@ -1,4 +1,4 @@
-[![Download](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fraisercostin%2Fmaven-repo%2Fmaster%2Forg%2Fraisercostin%2Fmaven-defaults-raisercostin%2Fmaven-metadata.xml])](https://raw.githubusercontent.com/raisercostin/maven-repo/master/org/raisercostin/maven-defaults-raisercostin/maven-metadata.xml)
+[![Download](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fraisercostin%2Fmaven-repo%2Fmaster%2Forg%2Fraisercostin%2Fmaven-defaults-raisercostin%2Fmaven-metadata.xml)](https://raw.githubusercontent.com/raisercostin/maven-repo/master/org/raisercostin/maven-defaults-raisercostin/maven-metadata.xml)
 
 # Features
 - Support for scala if src/main/scala exists
