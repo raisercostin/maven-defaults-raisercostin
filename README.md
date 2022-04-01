@@ -1,4 +1,4 @@
-[![Download](https://api.bintray.com/packages/raisercostin/maven/maven-defaults-raisercostin/images/download.svg)](https://bintray.com/raisercostin/maven/maven-defaults-raisercostin/_latestVersion)
+[![Download](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fraisercostin%2Fmaven-repo%2Fmaster%2Forg%2Fraisercostin%2Fmaven-defaults-raisercostin%2Fmaven-metadata.xml])](https://raw.githubusercontent.com/raisercostin/maven-repo/master/org/raisercostin/maven-defaults-raisercostin/maven-metadata.xml)
 
 # Features
 - Support for scala if src/main/scala exists
@@ -18,13 +18,33 @@ Include this pom as parent.
   <parent>
     <groupId>org.raisercostin</groupId>
     <artifactId>maven-defaults-raisercostin</artifactId>
-    <version>1.18</version>
+    <version>1.24</version>
   </parent>
   ...
 </project>
 ``` 
 
-No need to include a repository as is available at https://jcenter.bintray.com/org/raisercostin/maven-defaults-raisercostin/
+Also add the repository where this is hosted `pom.xml/project/repositories` that points to https://github.com/raisercostin/maven-repo
+```xml
+    <repository>
+      <id>raisercostin-github</id>
+      <name>Repository at https://github.com/raisercostin/maven-repo</name>
+      <url>https://raw.githubusercontent.com/raisercostin/maven-repo/master/</url>
+    </repository>
+```
+
+## Executable jar
+To have an executable jar add this to your `pom.xml/project/build` and a new file `${finalName}-myapp.jar` will be generated.
+```xml
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>${main.class}</mainClass>
+          <classifier>myapp</classifier>
+        </configuration>
+      </plugin>
+```
 
 # Development
 - To release
@@ -33,20 +53,3 @@ No need to include a repository as is available at https://jcenter.bintray.com/o
   `mvn versions:update-properties -Pjunit5`
 - See possible dependency updates
   `mvn versions:display-dependency-updates`
-  
-- To fix the following warnings
-```
-[INFO] [WARNING] Some problems were encountered while building the effective model for org.raisercostin:maven-defaults-raisercostin:pom:1.4
-[INFO] [WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: commons-io:commons-io:jar -> duplicate declaration of version 2.6 @ line 437, column 19
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.jetbrains.kotlin:kotlin-maven-plugin @ line 979, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-compiler-plugin @ line 1004, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-failsafe-plugin @ line 1010, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-jar-plugin @ line 1024, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-war-plugin @ line 1035, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.codehaus.mojo:exec-maven-plugin @ line 1046, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-resources-plugin @ line 1053, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin pl.project13.maven:git-commit-id-plugin @ line 1062, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.springframework.boot:spring-boot-maven-plugin @ line 1079, column 17
-[INFO] [WARNING] 'build.pluginManagement.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-shade-plugin @ line 1094, column 17
-[INFO] [WARNING]
-```
