@@ -102,7 +102,7 @@
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.organization>${org}</sonar.organization>
     <timestamp>${maven.build.timestamp}</timestamp>
-    <springboot.version>2.3.11.RELEASE</springboot.version>
+    <springboot.version>2.6.6</springboot.version>
     <quasar.version>0.7.10</quasar.version>
     <resilience4j.version>1.1.0</resilience4j.version>
     <springboot.version>2.3.11.RELEASE</springboot.version>
