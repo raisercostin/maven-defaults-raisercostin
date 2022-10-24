@@ -980,9 +980,11 @@
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
+        <!--
         <configuration>
           <altDeploymentRepository>dist-snapshot-${dist.id}::file://${project.build.directory}/myArtifacts</altDeploymentRepository>
         </configuration>
+        -->
       </plugin>
       <!-- old technologies - not available in springboot -->
       <!-- 
