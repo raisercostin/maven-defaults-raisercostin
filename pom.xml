@@ -56,15 +56,18 @@
     <createChecksum>true</createChecksum>
     <deployment.scope>compile</deployment.scope>
     <dist.id>github-raisercostin</dist.id>
+    <dist.release.url>scm:git:${git.url}</dist.release.url>
     <!-- 
     <dist.release.url>git:releases://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.release.url>
     <dist.site.url>git:gh-pages://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.site.url>
      -->
     <!-- <dist.snapshot.url>git:snapshots://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.snapshot.url> -->
     <!-- <dist.snapshot.url>scm:git://github.com/raisercostin/maven-repo.git</dist.snapshot.url> -->
+    <!--
     <dist.release.url>file://${project.build.directory}/myArtifacts</dist.release.url>
     <dist.site.url>file://${project.build.directory}/mySitess</dist.site.url>
     <dist.snapshot.url>file://${project.build.directory}/myArtifacts</dist.snapshot.url>
+    -->
     <!--
       Some samples
       - git:master:https2://github.com/raisercostin/jedio.git
