@@ -56,7 +56,8 @@
     <createChecksum>true</createChecksum>
     <deployment.scope>compile</deployment.scope>
     <dist.id>github-raisercostin</dist.id>
-    <dist.release.url>scm:git:${git.url}</dist.release.url>
+    <dist.release.url>scm:git:ssh://git@${git.host}/${git.userOrGroup}/${git.repo}</dist.release.url>
+    
     <!-- 
     <dist.release.url>git:releases://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.release.url>
     <dist.site.url>git:gh-pages://git@${git.host}:${git.userOrGroup}/${git.repo}.git</dist.site.url>
