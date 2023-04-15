@@ -969,7 +969,9 @@
           <fork>true</fork>
           <meminitial>512m</meminitial>
           <maxmem>1024m</maxmem>
+          <!--deprecated
           <optimize>true</optimize>
+          -->
           <debug>true</debug>
           <parameters>true</parameters>
         </configuration>
