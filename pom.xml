@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.raisercostin</groupId>
   <artifactId>maven-defaults-raisercostin</artifactId>
-  <version>1.26-SNAPSHOT</version>
+  <version>1.26</version>
   <packaging>pom</packaging>
   <description>A default configuration for maven projects.</description>
   <url>${git.url}</url>
@@ -24,7 +24,7 @@
   <scm>
     <connection>${scm.connection.url}</connection>
     <developerConnection>${scm.connection.url}</developerConnection>
-    <tag>maven-defaults-raisercostin-1.24</tag>
+    <tag>maven-defaults-raisercostin-1.26</tag>
     <url>${git.url}</url>
   </scm>
   <issueManagement>
